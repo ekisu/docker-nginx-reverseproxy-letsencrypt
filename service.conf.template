@@ -6,11 +6,13 @@ server {
     ssl_certificate_key /certs/${DOMAIN}/key.pem;
     ssl_dhparam /certs/dhparam.pem;
     add_header Access-Control-Allow-Origin *;
-    location / {
-            proxy_pass http://${PROXY};
-            proxy_set_header Host $http_host;
-    proxy_redirect off;
 
+    location / {
+        proxy_pass http://${PROXY};
+        proxy_set_header Host $http_host;
+        proxy_set_header X-Forwarded-Host $host;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_redirect off;
     }
 
 }
