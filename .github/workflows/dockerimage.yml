@@ -34,5 +34,5 @@ jobs:
         context: .
         push: true
         tags: |
-          ekisu/docker-nginx-reverseproxy-letsencrypt:latest
-          ekisu/docker-nginx-reverseproxy-letsencrypt:${{ steps.date.outputs.date }}
+          ghcr.io/ekisu/docker-nginx-reverseproxy-letsencrypt:latest
+          ghcr.io/ekisu/docker-nginx-reverseproxy-letsencrypt:${{ steps.date.outputs.date }}
